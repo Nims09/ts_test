@@ -1,0 +1,34 @@
+From 7265b6fe2ade775c528facc3dcbe6b1bc00b7f3a Mon Sep 17 00:00:00 2001
+From: Steven Rockarts <stevenrockarts@gmail.com>
+Date: Thu, 14 May 2015 14:00:52 -0600
+Subject: [PATCH] Fix some spelling errors
+
+---
+ README.md | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/README.md b/README.md
+index d9a366b..e2e65f8 100644
+--- a/README.md
++++ b/README.md
+@@ -38,13 +38,13 @@ You are going to create a Gif pronunciation simulator. To do so, please implemen
+ 
+ #### Rules
+ 
+-- If a person with an opinion has fewer than 2 opinionated neighbours then they stops having an opinion since there is not enough people to argue with. 
++- If a person with an opinion has fewer than 2 opinionated neighbours then they stop having an opinion since there is not enough people to argue with.
+ 
+-- If a person with an opinion has more than 3 opinionated neighbours then they stops having an opinion since their opinion is drowned out by their neighbours. 
++- If a person with an opinion has more than 3 opinionated neighbours then they stop having an opinion since their opinion is drowned out by their neighbours. 
+ 
+-- If a person without an opinion that have exactly 3 opinionated neighbours and at least 2 of them think "Gif" is pronounced with a hard G then they form an opinion that it is pronounced with a hard G
++- If a person without an opinion has exactly 3 opinionated neighbours and at least 2 of them think "Gif" is pronounced with a hard G then they form an opinion that it is pronounced with a hard G
+ 
+-- If a person without an opinion that have exactly 3 opinionated neighbours and at least 2 of them think "Gif" is pronounced with a soft G then they form an opinion that it is pronounced with a soft G
++- If a person without an opinion has exactly 3 opinionated neighbours and at least 2 of them think "Gif" is pronounced with a soft G then they form an opinion that it is pronounced with a soft G
+ 
+ #### Assumptions 
+ - There will be an NxM seating arrangement
+-- 
+1.8.3.msysgit.0
+
