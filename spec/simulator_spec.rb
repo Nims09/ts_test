@@ -123,6 +123,9 @@ describe Simulator do
 
       include_examples "correct_state"
     end
+
+    # TODO : Add some tests of your own. 
+    
   end
 
 end
