@@ -1,3 +1,9 @@
+# Personal Design points
+
+## Initialize 
+
+- The simulator says input will be, ':soft', ':hard' or ':none' however I still validated that all where members of one of these types
+
 # Clio Hiring Project
 
 ## Environment Requirements
