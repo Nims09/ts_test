@@ -14,7 +14,7 @@ describe Simulator do
         expect(simulator.verdict).to eql verdict
       end
     end
-    
+
     before do
       simulator.next
     end
@@ -41,25 +41,25 @@ describe Simulator do
       
     end
 
-    # context "#2" do
-    #   let(:initial_state) do
-    #     [
-    #      [:soft, :hard, :none],
-    #      [:hard, :none, :soft],
-    #      [:soft, :soft, :hard],
-    #     ]
-    #   end
-    #   let(:resulting_state) do
-    #     [
-    #      [:soft, :hard, :none],
-    #      [:none, :none, :soft],
-    #      [:soft, :none, :hard]
-    #     ]
-    #   end
-    #   let(:verdict) { :soft }
+    context "#2" do
+      let(:initial_state) do
+        [
+         [:soft, :hard, :none],
+         [:hard, :none, :soft],
+         [:soft, :soft, :hard],
+        ]
+      end
+      let(:resulting_state) do
+        [
+         [:soft, :hard, :none],
+         [:none, :none, :soft],
+         [:soft, :none, :hard]
+        ]
+      end
+      let(:verdict) { :soft }
 
-    #   include_examples "correct_state"
-    # end
+      include_examples "correct_state"
+    end
 
     # context "#3" do
     #   let(:initial_state) do

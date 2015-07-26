@@ -43,9 +43,7 @@ class Simulator
     @seating_arrangement.each_with_index do |array, y_index|
       array.each_with_index do |opinion, x_index|
         new_seating_arrangement[y_index][x_index] = update_opinion_for x_index, y_index
-        if not @opinions[new_seating_arrangement[y_index][x_index]].nil?
-          @opinions[new_seating_arrangement[y_index][x_index]] += 1
-        end
+        @opinions[@seating_arrangement[y_index][x_index]] += 1
       end
     end
 
@@ -56,7 +54,7 @@ class Simulator
 
   # Checks to see if a position is in arrangment bounds
   def in_array_range?(x, y)
-    return (x >= 0 and y >= 0 and x < @seating_arrangement[0].size and y < @seating_arrangement.size)
+    return ((x >= 0) and (y >= 0) and (x < @seating_arrangement[0].size) and (y < @seating_arrangement.size))
   end
 
   # Scans neighbors and passes back a decided opinion
@@ -66,30 +64,28 @@ class Simulator
     # For each position in range, check if it's valid, and consider
     for y_pos in (y-1)..(y+1)
       for x_pos in (x-1)..(x+1)
-        if in_array_range? x_pos, y_pos and not local_opinions[@seating_arrangement[y_pos][x_pos]].nil? 
+        if in_array_range? x_pos, y_pos and not (x == x_pos and y == y_pos)
           local_opinions[@seating_arrangement[y_pos][x_pos]] += 1
         end
       end
     end
 
     # Evaluate based on considerations and set rules
-    puts " -- "
-    puts "is x: #{x}, y: #{y} has counts: soft #{local_opinions[:soft]}, hard #{local_opinions[:hard]}, neutral: #{local_opinions[:none]}, the TOT is #{local_opinions[:hard] + local_opinions[:soft]}"
-    if (local_opinions[:hard] + local_opinions[:soft]) == 2
-      puts "returns orig"
-      return @seating_arrangement[y][x]
-    elsif (local_opinions[:hard] + local_opinions[:soft]) != 3
-      puts "returns none "
-      return :none
-    elsif local_opinions[:hard] > local_opinions[:soft]
-      puts "returns hard"
-      return :hard
-    elsif local_opinions[:soft] > local_opinions[:hard]
-      puts "returns soft"
-      return :soft
-    else
-      puts "problem "
-    end
-  end
+    opinion = @seating_arrangement[y][x]
+    opinionated_neighbors_count = local_opinions[:hard] + local_opinions[:soft]
 
+
+    if (opinion != :none) and (opinionated_neighbors_count < 2 or opinionated_neighbors_count > 3)
+      opinion = :none    
+      puts "Trace #{x} #{y} ---- h#{local_opinions[:hard]} s#{local_opinions[:soft]}"
+    elsif opinion == :none and opinionated_neighbors_count == 3
+      if local_opinions[:hard] > local_opinions[:soft]
+        opinion = :hard
+      elsif local_opinions[:soft] > local_opinions[:hard]
+        opinion = :soft
+      end 
+    end 
+
+    return opinion
+  end
 end
