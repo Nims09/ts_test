@@ -1,15 +1,13 @@
-# Personal Design Points
+## Personal Design Points
 
-## initialize 
-
+#### initialize 
 - The simulator says input will be, ':soft', ':hard' or ':none' however I still validated that all where members of one of these types
 
-## next
-
+#### next
 - Since all state transitions happen simultaneously, I make a copy of the previous array, and fill it in as I go along, using the information from the previous state
 
-## update_opinions_for (private)
-- I used a loop around all positions instead of hardcoding, both come to O(i) operations where i is the number of names (because we have i positions to check, whether we use a loop or hardcoded), however using the loops instead of hard coding allows us to expand the size of neighbors if we wanted to allow more people to be considered in the argument
+#### update_opinions_for (private)
+- I used a loop around all positions instead of hardcoding, both come to O(i) operations where i is the number of positions (because we have i positions to check, whether we use a loop or hardcoded), however using the loops instead of hard coding allows us to expand the size of neighbors if we wanted to allow more people to be considered in the argument
 
 # Clio Hiring Project
 

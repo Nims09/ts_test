@@ -67,7 +67,7 @@ class Simulator
   def update_opinion_for(x, y)
     local_opinions = Hash[ @keys.map { |key| [key, 0] } ]
 
-    # For each position in range, check if it's valid, and consider
+    # For each position in range, if it's valid: consider
     for y_pos in (y-1)..(y+1)
       for x_pos in (x-1)..(x+1)
         if in_array_range? x_pos, y_pos and not(x == x_pos and y == y_pos)
