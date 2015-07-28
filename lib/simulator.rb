@@ -22,18 +22,18 @@ class Simulator
   ### 
   def verdict
     if @opinions[:hard] > @opinions[:soft]
-      return :hard
+      :hard
     elsif @opinions[:soft] > @opinions[:hard]
-      return :soft
+      :soft
     else
-      return :push
+      :push
     end
   end
 
   # Returns our current state
   ###  
   def state
-    return @seating_arrangement
+    @seating_arrangement
   end
 
   # Updates the arrangment state, rechecks counts as it goes
@@ -59,7 +59,7 @@ class Simulator
   # Checks to see if a position is in arrangment bounds
   ###
   def in_array_range?(x, y)
-    return ((x >= 0) and (y >= 0) and (x < @seating_arrangement[0].size) and (y < @seating_arrangement.size))
+    ((x >= 0) and (y >= 0) and (x < @seating_arrangement[0].size) and (y < @seating_arrangement.size))
   end
 
   # Scans neighbours and passes back a decided opinion
@@ -90,6 +90,6 @@ class Simulator
       end 
     end 
 
-    return opinion
+    opinion
   end
 end

@@ -9,6 +9,9 @@
 #### update_opinions_for (private)
 - I used a loop around all positions instead of hardcoding, both come to O(i) operations where i is the number of positions (because we have i positions to check, whether we use a loop or hardcoded), however using the loops instead of hard coding allows us to expand the size of neighbors if we wanted to allow more people to be considered in the argument.
 
+#### tests
+- I wasn't sure how speficially testing should be so I just added some specific tests for different cases for the private functions.
+
 # Clio Hiring Project
 
 ## Environment Requirements
